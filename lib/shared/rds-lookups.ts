@@ -10,7 +10,7 @@ export interface RdsInstanceAttrs {
 
 export function getRdsInstanceAttributes(scope: any, identifier: string): RdsInstanceAttrs | undefined {
   try {
-    const region = Stack.of(scope).region || process.env.AWS_REGION || process.env.CDK_DEFAULT_REGION || 'ap-northeast-3';
+    const region = Stack.of(scope).region || process.env.AWS_REGION || process.env.CDK_DEFAULT_REGION || 'ap-northeast-1';
     const env = { ...process.env, AWS_REGION: region, AWS_DEFAULT_REGION: region };
     const query = "DBInstances[0].[Endpoint.Address,Endpoint.Port,VpcSecurityGroups[*].VpcSecurityGroupId,DBInstanceArn]";
     const cmd = `aws rds describe-db-instances --db-instance-identifier ${identifier} --query '${query}' --output json --region ${region}`;

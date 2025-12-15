@@ -29,7 +29,7 @@ usage() {
     echo "  --rp-id <value>           - WebAuthn Relying Party ID (例: dev.example.com)"
     echo "  --origin <value>          - WebAuthn Origin URL (例: https://dev.example.com/)"
     echo "  --strict-verify <value>   - Strict verify flag (true/false)"
-    echo "  --region <value>          - AWS Region (デフォルト: ap-northeast-3)"
+    echo "  --region <value>          - AWS Region (デフォルト: ap-northeast-1)"
     echo ""
     echo "Examples:"
     echo "  # 新しい本番環境の設定"
@@ -53,7 +53,7 @@ ENVIRONMENT=$2
 shift 2
 
 # デフォルト値
-AWS_REGION="ap-northeast-3"
+AWS_REGION="ap-northeast-1"
 RP_ID=""
 ORIGIN=""
 STRICT_VERIFY=""

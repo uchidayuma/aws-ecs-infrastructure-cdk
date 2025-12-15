@@ -144,10 +144,10 @@ export class RdsStack extends BaseStack {
       this.dbInstance.connections.allowFrom(bastionSg, ec2.Port.tcp(3306), 'MySQL from bastion');
     }
 
-    // Secrets rotation: enable in non-dev by default, except in regions where SAR is unavailable (e.g., ap-northeast-3)
+    // Secrets rotation: enable in non-dev by default (ap-northeast-1 supports SAR)
     const currentRegion = Stack.of(this).region;
     const enableRotationCtx = (this.node.tryGetContext('enableSecretRotation') as string | undefined)?.toLowerCase();
-    const enableRotation = !isDev && (enableRotationCtx ? enableRotationCtx === 'true' : currentRegion !== 'ap-northeast-3');
+    const enableRotation = !isDev && (enableRotationCtx ? enableRotationCtx === 'true' : true);
     if (enableRotation && !useExisting) {
       (this.dbInstance as rds.DatabaseInstance).addRotationSingleUser({ automaticallyAfter: Duration.days(30) });
     }

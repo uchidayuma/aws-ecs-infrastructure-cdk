@@ -4,7 +4,7 @@
     "@aws-cdk/core:newStyleStackSynthesis": true,
     "env": "dev",
     "project": "sample-app",
-    "region": "ap-northeast-3",
-    "sesRegion": "ap-northeast-3"
+    "region": "ap-northeast-1",
+    "sesRegion": "ap-northeast-1"
   }
 }

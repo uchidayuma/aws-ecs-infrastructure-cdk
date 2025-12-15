@@ -204,7 +204,7 @@ export class EcsStack extends BaseStack {
       ? ecs.ContainerImage.fromEcrRepository(backendRepo, backendTag)
       : ecs.ContainerImage.fromRegistry(`${this.account}.dkr.ecr.${this.region}.amazonaws.com/${project}-${environment}/backend:${backendTag}`);
 
-    // SES も ap-northeast-3 を使用（必要に応じて -c sesRegion=... で上書き可）
+    // SES も ap-northeast-1 を使用（必要に応じて -c sesRegion=... で上書き可）
     const sesRegionCtx = this.node.tryGetContext('sesRegion') as string | undefined;
     const sesRegion = sesRegionCtx || this.region;
 
@@ -454,7 +454,7 @@ export class EcsStack extends BaseStack {
     // aws ecs execute-command --cluster sample-app-prod-cluster \
     //   --task <task-id> --container flask \
     //   --interactive --command "sh -lc 'sh scripts/migrate.sh'" \
-    //   --region ap-northeast-3
+    //   --region ap-northeast-1
 
     // Frontend service (React)
     const frontendTaskDef = new ecs.FargateTaskDefinition(this, `${project}-${environment}-frontend-taskdef`, {

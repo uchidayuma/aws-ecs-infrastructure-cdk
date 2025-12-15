@@ -18,7 +18,7 @@ const app = new cdk.App();
 
 const project = (app.node.tryGetContext('project') as string) || 'sample-app';
 const environment = (app.node.tryGetContext('env') as string) || process.env.ENV || 'dev';
-const region = (app.node.tryGetContext('region') as string) || process.env.CDK_DEFAULT_REGION || 'ap-northeast-3';
+const region = (app.node.tryGetContext('region') as string) || process.env.CDK_DEFAULT_REGION || 'ap-northeast-1';
 const account = (app.node.tryGetContext('account') as string) || process.env.CDK_DEFAULT_ACCOUNT || process.env.AWS_ACCOUNT_ID;
 
 const config = getEnvConfig(environment);

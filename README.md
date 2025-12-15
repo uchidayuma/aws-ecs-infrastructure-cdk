@@ -70,19 +70,19 @@ The architecture diagram above illustrates the complete AWS infrastructure setup
   - dev: `172.20.0.0/16`
   - staging: `172.21.0.0/16`
   - prod: `172.22.0.0/16`
-  - Region: `ap-northeast-3` (Osaka)
+  - Region: `ap-northeast-1` (Tokyo)
   - Availability Zones: 2 (for high availability)
 
 #### Subnet Configuration
 
 | Subnet Name       | CIDR           | AZ              | Purpose          |
 | ----------------- | -------------- | --------------- | ---------------- |
-| public-subnet-1a  | 172.20.1.0/24  | ap-northeast-3a | ALB, NAT Gateway |
-| public-subnet-1c  | 172.20.2.0/24  | ap-northeast-3c | ALB, NAT Gateway |
-| private-subnet-1a | 172.20.10.0/24 | ap-northeast-3a | ECS Fargate      |
-| private-subnet-1c | 172.20.11.0/24 | ap-northeast-3c | ECS Fargate      |
-| db-subnet-1a      | 172.20.20.0/24 | ap-northeast-3a | RDS              |
-| db-subnet-1c      | 172.20.21.0/24 | ap-northeast-3c | RDS              |
+| public-subnet-1a  | 172.20.1.0/24  | ap-northeast-1a | ALB, NAT Gateway |
+| public-subnet-1c  | 172.20.2.0/24  | ap-northeast-1c | ALB, NAT Gateway |
+| private-subnet-1a | 172.20.10.0/24 | ap-northeast-1a | ECS Fargate      |
+| private-subnet-1c | 172.20.11.0/24 | ap-northeast-1c | ECS Fargate      |
+| db-subnet-1a      | 172.20.20.0/24 | ap-northeast-1a | RDS              |
+| db-subnet-1c      | 172.20.21.0/24 | ap-northeast-1c | RDS              |
 
 #### Security Groups
 
@@ -207,7 +207,7 @@ npx cdk deploy sample-app-{env}-ecs -c env={env}
 ### Context Parameters
 
 - `-c env={dev|staging|prod}`: Environment selection
-- `-c region={region}`: AWS region (default: ap-northeast-3)
+- `-c region={region}`: AWS region (default: ap-northeast-1)
 - `-c account={account-id}`: AWS account ID
 - `-c certArn={arn}`: ACM certificate ARN for HTTPS
 - `-c enableAlarms={true|false}`: Enable CloudWatch alarms
