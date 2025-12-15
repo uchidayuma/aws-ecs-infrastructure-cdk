@@ -1,0 +1,35 @@
+{
+  "name": "sample-app-infrastructure-cdk",
+  "version": "0.1.0",
+  "bin": {
+    "sample-app-infrastructure-cdk": "bin/app.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc -w",
+    "cdk": "cdk",
+    "synth": "cdk synth",
+    "deploy": "cdk deploy"
+  },
+  "devDependencies": {
+    "@aws-sdk/client-ec2": "^3.887.0",
+    "@aws-sdk/client-ecr": "^3.913.0",
+    "@aws-sdk/client-ecs": "^3.887.0",
+    "@aws-sdk/client-rds": "^3.887.0",
+    "@aws-sdk/client-route-53": "^3.887.0",
+    "@slack/webhook": "^7.0.6",
+    "@types/aws-lambda": "^8.10.156",
+    "@types/node": "^20.11.30",
+    "aws-lambda": "^1.0.7",
+    "esbuild": "^0.20.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.620.0",
+    "aws-cdk-lib": "^2.146.0",
+    "constructs": "^10.3.0",
+    "mysql2": "^3.9.7",
+    "source-map-support": "^0.5.21"
+  }
+}
